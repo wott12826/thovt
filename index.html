@@ -521,7 +521,37 @@
     color: black !important;
   }
 </style>
+<style>
+.choose-button {
+  width: 425px;
+  display: inline-block;
+  padding: 18px 48px;
+  font-weight: 800 !important;
+  border: 2px solid #fff3;
+  border-radius: 9999px;
+  font-size: 1rem;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease-in-out;
+  margin: 0 10px;
+}
 
+.choose-left {
+  background: linear-gradient(to top, #000000, #ffffff);
+}
+
+.choose-left:hover {
+  background: linear-gradient(to top, #ffffff, #000000);
+}
+
+.choose-right {
+  background: linear-gradient(to top, #4ade80, #ffffff);
+}
+
+.choose-right:hover {
+  background: linear-gradient(to top, #ffffff, #4ade80);
+}
+</style>
 
   <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport" />
 </head>
@@ -1359,20 +1389,13 @@
                               </div>
                             </div>
                           </div>
-                          <div
-                            class="elementor-element elementor-element-ba64e60 elementor-align-justify elementor-widget elementor-widget-button"
-                            data-element_type="widget" data-id="ba64e60" data-widget_type="button.default">
-                          <div class="elementor-widget-container">
-  <div class="elementor-button-wrapper" style="text-align: center;">
-    <a href="images/Choose_left.png">
-      <img src="images/Choose_left.png" alt="Choose Button" style="width: 500px; height: 70px; border-radius: 9999px;">
-    </a>
+                          <div class="elementor-element elementor-element-3d041cb elementor-align-justify elementor-widget elementor-widget-button" data-element_type="widget" data-id="3d041cb" data-widget_type="button.default">
+  <div class="elementor-widget-container">
+    <div class="elementor-button-wrapper" style="text-align: center; ">
+      <a href="#" class="choose-button choose-left" style="color: white;">Choose</a>
+    </div>
   </div>
 </div>
-
-
-
-                          </div>
                           <div
                             class="elementor-element elementor-element-73e69c4 elementor-widget elementor-widget-spacer"
                             data-element_type="widget" data-id="73e69c4" data-widget_type="spacer.default">
@@ -1798,17 +1821,14 @@
                               </div>
                             </div>
                           </div>
-                          <div
-                            class="elementor-element elementor-element-3d041cb elementor-align-justify elementor-widget elementor-widget-button"
-                            data-element_type="widget" data-id="3d041cb" data-widget_type="button.default">
-                            <div class="elementor-widget-container">
-  <div class="elementor-button-wrapper" style="text-align: center;">
-    <a href="images/Choose.png">
-      <img src="images/Choose.png" alt="Choose Button" style="width: 500px; height: 70px; border-radius: 9999px;">
-    </a>
+                          <div class="elementor-element elementor-element-3d041cb elementor-align-justify elementor-widget elementor-widget-button" data-element_type="widget" data-id="3d041cb" data-widget_type="button.default">
+  <div class="elementor-widget-container">
+    <div class="elementor-button-wrapper" style="text-align: center;">
+      <a href="#" class="choose-button choose-right" style="  color: black;
+  font-weight: bold;">Choose</a>
+    </div>
   </div>
 </div>
-                          </div>
                           <div
                             class="elementor-element elementor-element-411cf75 elementor-widget elementor-widget-spacer"
                             data-element_type="widget" data-id="411cf75" data-widget_type="spacer.default">
