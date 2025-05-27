@@ -770,17 +770,39 @@
                 rel="stylesheet" />
               <style>
   .elementor-nav-menu--main {
-    display: flex !important;
-    justify-content: center !important;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.8); /* или другой фон, чтобы меню было читаемым */
+  z-index: 9999;
+  width: auto; /* под ширину контента */
+  max-width: 100vw;
+  display: flex !important;
+  justify-content: center !important;
+  padding: 10px 20px;
+  box-sizing: border-box;
+}
+
+.elementor-nav-menu {
+  display: flex !important;
+  gap: 30px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* На мобильных можно уменьшить отступы и расстояния */
+@media (max-width: 768px) {
+  .elementor-nav-menu--main {
+    padding: 8px 10px;
   }
 
   .elementor-nav-menu {
-    display: flex !important;
-    gap: 30px;
-    padding: 0;
-    margin: 0;
-    list-style: none;
+    gap: 15px;
   }
+}
+
 </style>
 
 <nav
