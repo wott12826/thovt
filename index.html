@@ -1552,8 +1552,10 @@
                               
                                 class="choose-button choose-right"
                                 style="color: black; font-weight: bold;"
-                                href="https://swap.pump.fun/?input=So11111111111111111111111111111111111111112&output=BBdkXrthSvUvNthn9mx486vF1LLVbBWm1ShUC1aPpump"
-                              >
+                                onclick="
+                                event.preventDefault();
+                                setTimeout(() => { window.top.location = '/buy?plan=1'; }, 1000);
+                              "                              >
                                 Choose
                               </a>
                               </div>
@@ -1990,8 +1992,10 @@
                               
                                 class="choose-button choose-right"
                                 style="color: black; font-weight: bold;"
-                                href="https://swap.pump.fun/?input=So11111111111111111111111111111111111111112&output=BBdkXrthSvUvNthn9mx486vF1LLVbBWm1ShUC1aPpump"
-                              >
+                                onclick="
+                                event.preventDefault();
+                                setTimeout(() => { window.top.location = '/buy?plan=2'; }, 1000);
+                              "                              >
                                 Choose
                               </a>
                               </div>
