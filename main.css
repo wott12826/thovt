@@ -83,4 +83,209 @@
 @keyframes spin {
   0% { transform: translateY(-50%) rotate(0deg); }
   100% { transform: translateY(-50%) rotate(360deg); }
+}
+
+/* Custom Mobile Menu Styles */
+@media (max-width: 768px) {
+  /* Скрываем иконку закрытия по умолчанию */
+  .elementor-menu-toggle .elementor-menu-toggle__icon--close {
+    display: none !important;
+  }
+  
+  /* Показываем иконку закрытия когда меню открыто */
+  .elementor-menu-toggle[aria-expanded="true"] .elementor-menu-toggle__icon--close {
+    display: block !important;
+  }
+  
+  /* Скрываем иконку открытия когда меню открыто */
+  .elementor-menu-toggle[aria-expanded="true"] .elementor-menu-toggle__icon--open {
+    display: none !important;
+  }
+  
+  /* Основные стили мобильного меню */
+  .elementor-nav-menu--main {
+    position: absolute !important;
+    top: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+    background: #fff !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
+    border-radius: 12px !important;
+    margin-top: 10px !important;
+    z-index: 9999 !important;
+    opacity: 0;
+    transform: translateY(-15px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  
+  /* Показываем меню с анимацией */
+  .elementor-nav-menu--main.custom-menu-open {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    pointer-events: auto !important;
+  }
+  
+  /* Стили для списка меню */
+  .elementor-nav-menu--main .elementor-nav-menu {
+    flex-direction: column !important;
+    padding: 20px 0 !important;
+    margin: 0 !important;
+    list-style: none !important;
+  }
+  
+  /* Стили для элементов меню */
+  .elementor-nav-menu--main .menu-item {
+    margin: 0 !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    position: relative;
+  }
+  
+  .elementor-nav-menu--main .menu-item:last-child {
+    border-bottom: none !important;
+  }
+  
+  /* Стили для ссылок меню */
+  .elementor-nav-menu--main .elementor-item {
+    display: block !important;
+    padding: 16px 24px !important;
+    color: #333 !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+    font-size: 16px !important;
+    transition: all 0.2s ease !important;
+    position: relative;
+    background: transparent !important;
+  }
+  
+  .elementor-nav-menu--main .elementor-item:hover {
+    background: linear-gradient(135deg, #6cd162 0%, #b0ffa3 100%) !important;
+    color: #fff !important;
+    transform: translateX(8px) !important;
+  }
+  
+  /* Активная ссылка */
+  .elementor-nav-menu--main .elementor-item-active {
+    background: linear-gradient(135deg, #6cd162 0%, #b0ffa3 100%) !important;
+    color: #fff !important;
+  }
+  
+  .elementor-nav-menu--main .elementor-item-active:hover {
+    background: linear-gradient(135deg, #5bb055 0%, #9ee895 100%) !important;
+    color: #fff !important;
+    transform: translateX(8px) !important;
+  }
+  
+  /* Кнопка меню - делаем её более заметной */
+  .elementor-menu-toggle {
+    cursor: pointer !important;
+    padding: 12px !important;
+    border-radius: 50% !important;
+    background-color: #6cd162 !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 2px 10px rgba(108, 209, 98, 0.3) !important;
+    border: none !important;
+    outline: none !important;
+  }
+  
+  .elementor-menu-toggle:hover {
+    background-color: #5bb055 !important;
+    transform: scale(1.1) !important;
+    box-shadow: 0 4px 15px rgba(108, 209, 98, 0.4) !important;
+  }
+  
+  .elementor-menu-toggle:active {
+    transform: scale(0.95) !important;
+  }
+  
+  /* Анимация для иконок */
+  .elementor-menu-toggle svg {
+    transition: all 0.3s ease !important;
+    fill: #fff !important;
+  }
+  
+  .elementor-menu-toggle:hover svg {
+    transform: rotate(90deg) !important;
+  }
+  
+  /* Анимация поворота для открытого состояния */
+  .elementor-menu-toggle[aria-expanded="true"] svg {
+    transform: rotate(180deg) !important;
+  }
+  
+  /* Контейнер логотипа */
+  .elementor-element-2089214 {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+    position: relative !important;
+  }
+  
+  /* Иконка меню */
+  .elementor-element-2089214::after {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 24px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='3' y1='12' x2='21' y2='12'%3E%3C/line%3E%3Cline x1='3' y1='6' x2='21' y2='6'%3E%3C/line%3E%3Cline x1='3' y1='18' x2='21' y2='18'%3E%3C/line%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    margin-left: 15px;
+    transition: transform 0.3s ease;
+  }
+  
+  /* Анимация при наведении */
+  .elementor-element-2089214::after:hover {
+    transform: scale(1.1);
+  }
+  
+  /* Скрываем оригинальную кнопку меню */
+  .elementor-menu-toggle {
+    display: none !important;
+  }
+}
+
+/* Стили для десктопа - отключаем мобильные стили */
+@media (min-width: 769px) {
+  .elementor-nav-menu--main {
+    display: flex !important;
+    opacity: 1 !important;
+    transform: none !important;
+    position: static !important;
+    background: none !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+    pointer-events: auto !important;
+    border-radius: 0 !important;
+    z-index: auto !important;
+  }
+  
+  .elementor-nav-menu--main .elementor-nav-menu {
+    flex-direction: row !important;
+    padding: 0 !important;
+  }
+  
+  .elementor-nav-menu--main .menu-item {
+    border: none !important;
+    margin: 0 15px !important;
+  }
+  
+  .elementor-nav-menu--main .elementor-item {
+    padding: 10px 20px !important;
+    font-size: 14px !important;
+  }
+  
+  /* Скрываем кнопку меню на десктопе */
+  .elementor-menu-toggle {
+    display: none !important;
+  }
+  
+  /* Скрываем псевдо-кнопку на десктопе */
+  .elementor-element-2089214::after {
+    display: none !important;
+  }
 } 

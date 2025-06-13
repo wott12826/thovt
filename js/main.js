@@ -319,6 +319,86 @@ async function checkTransactionStatus(signature) {
   return false;
 }
 
+// Simple Mobile Menu Toggle - Custom Implementation
+function initCustomMobileMenu() {
+  console.log('Initializing custom mobile menu...');
+  
+  // Найдем кнопку и меню
+  const menuButton = document.querySelector('.elementor-menu-toggle');
+  const navMenu = document.querySelector('.elementor-nav-menu--main');
+  
+  if (!menuButton || !navMenu) {
+    console.warn('Menu elements not found');
+    return;
+  }
+  
+  console.log('Menu elements found, setting up...');
+  
+  // Удаляем все существующие event listeners (чистим конфликты)
+  const newButton = menuButton.cloneNode(true);
+  menuButton.parentNode.replaceChild(newButton, menuButton);
+  
+  // Инициализируем меню как скрытое на мобильных
+  if (window.innerWidth <= 768) {
+    navMenu.style.display = 'none';
+    newButton.setAttribute('aria-expanded', 'false');
+  }
+  
+  // Добавляем обработчик клика
+  newButton.addEventListener('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    console.log('Menu button clicked!');
+    
+    const isExpanded = newButton.getAttribute('aria-expanded') === 'true';
+    
+    if (isExpanded) {
+      // Закрываем меню
+      console.log('Closing menu...');
+      navMenu.style.display = 'none';
+      navMenu.classList.remove('custom-menu-open');
+      newButton.setAttribute('aria-expanded', 'false');
+    } else {
+      // Открываем меню
+      console.log('Opening menu...');
+      navMenu.style.display = 'block';
+      navMenu.classList.add('custom-menu-open');
+      newButton.setAttribute('aria-expanded', 'true');
+    }
+  });
+  
+  // Закрываем меню при клике на ссылки
+  const menuLinks = navMenu.querySelectorAll('.elementor-item');
+  menuLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth <= 768) {
+        navMenu.style.display = 'none';
+        navMenu.classList.remove('custom-menu-open');
+        newButton.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+  
+  // Управляем видимостью при изменении размера окна
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+      // Десктоп - показываем меню всегда
+      navMenu.style.display = '';
+      navMenu.classList.remove('custom-menu-open');
+      newButton.setAttribute('aria-expanded', 'false');
+    } else {
+      // Мобильный - скрываем если не активно
+      if (!navMenu.classList.contains('custom-menu-open')) {
+        navMenu.style.display = 'none';
+      }
+    }
+  });
+  
+  console.log('Custom mobile menu initialized successfully!');
+}
+
+// Инициализируем после загрузки DOM
 document.addEventListener('DOMContentLoaded', function() {
   updatePayButtonVisibility();
   
@@ -333,7 +413,29 @@ document.addEventListener('DOMContentLoaded', function() {
   
   setupWalletButtons();
   
+  // Инициализируем наше кастомное мобильное меню
+  setTimeout(() => {
+    initCustomMobileMenu();
+  }, 500); // Небольшая задержка чтобы избежать конфликтов
+  
   setTimeout(setupWalletButtons, 100);
+
+  // Mobile Menu Toggle
+  const logoContainer = document.querySelector('.elementor-element-2089214');
+  const menuButton = document.querySelector('.elementor-menu-toggle');
+  
+  if (logoContainer && menuButton) {
+    logoContainer.addEventListener('click', function(e) {
+      // Проверяем, что клик был по иконке (правая часть контейнера)
+      const rect = logoContainer.getBoundingClientRect();
+      const clickX = e.clientX - rect.left;
+      
+      if (clickX > rect.width - 40) { // 40px от правого края
+        e.preventDefault();
+        menuButton.click(); // Симулируем клик по оригинальной кнопке
+      }
+    });
+  }
 });
 
 /*

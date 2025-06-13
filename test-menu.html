@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест мобильного меню</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        
+        .test-header {
+            background: #fff;
+            padding: 15px 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: relative;
+            margin-bottom: 20px;
+        }
+        
+        .test-info {
+            background: #e8f5e8;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #6cd162;
+        }
+        
+        @media (min-width: 769px) {
+            .test-info::after {
+                content: " (сейчас десктопная версия - измените размер окна чтобы увидеть мобильное меню)";
+                color: #666;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .test-info::after {
+                content: " (мобильная версия активна ✓)";
+                color: #6cd162;
+                font-weight: bold;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="test-info">
+        <h3>🧪 Тест мобильного меню</h3>
+        <p>Кнопка меню должна появиться при ширине экрана ≤768px</p>
+    </div>
+
+    <div class="test-header">
+        <!-- Наша кнопка и меню -->
+        <div aria-expanded="false" aria-label="Menu Toggle" class="elementor-menu-toggle" role="button" tabindex="0">
+            <span class="elementor-menu-toggle__icon--open">
+                <svg fill="none" height="17" viewBox="0 0 19 17" width="19" xmlns="http://www.w3.org/2000/svg">
+                    <path clip-rule="evenodd" d="M8.16602 15.1667C8.16602 14.4303 8.76297 13.8333 9.49935 13.8333H17.4993C18.2357 13.8333 18.8327 14.4303 18.8327 15.1667C18.8327 15.9031 18.2357 16.5 17.4993 16.5H9.49935C8.76297 16.5 8.16602 15.9031 8.16602 15.1667ZM0.166016 1.83333C0.166016 1.09695 0.762962 0.5 1.49935 0.5H17.4993C18.2357 0.5 18.8327 1.09695 18.8327 1.83333C18.8327 2.56971 18.2357 3.16667 17.4993 3.16667H1.49935C0.762962 3.16667 0.166016 2.56971 0.166016 1.83333ZM0.166016 8.5C0.166016 7.76363 0.762962 7.16667 1.49935 7.16667H17.4993C18.2357 7.16667 18.8327 7.76363 18.8327 8.5C18.8327 9.2364 18.2357 9.83333 17.4993 9.83333H1.49935C0.762962 9.83333 0.166016 9.2364 0.166016 8.5Z" fill="black" fill-rule="evenodd" id="Vector"></path>
+                </svg>
+            </span>
+            <svg aria-hidden="true" class="elementor-menu-toggle__icon--close e-font-icon-svg e-eicon-close" role="presentation" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
+                <path d="M742 167L500 408 258 167C246 154 233 150 217 150 196 150 179 158 167 167 154 179 150 196 150 212 150 229 154 242 171 254L408 500 167 742C138 771 138 800 167 829 196 858 225 858 254 829L496 587 738 829C750 842 767 846 783 846 800 846 817 842 829 829 842 817 846 804 846 783 846 767 842 750 829 737L588 500 833 258C863 229 863 200 833 171 804 137 775 137 742 167Z"></path>
+            </svg>
+            <span class="elementor-screen-only">Menu</span>
+        </div>
+
+        <nav class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-horizontal e--pointer-none" style="z-index: 100000 !important; position: relative;">
+            <ul class="elementor-nav-menu" id="menu-test">
+                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-3130 current_page_item menu-item-3180">
+                    <a aria-current="page" class="elementor-item elementor-item-active" href="https://x.com/Tokenoactive">Twitter</a>
+                </li>
+                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3515">
+                    <a class="elementor-item left" href="https://t.me/Tokenoactive">Telegram</a>
+                </li>
+                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3514">
+                    <a class="elementor-item left" href="https://swap.pump.fun/?input=So11111111111111111111111111111111111111112&output=BBdkXrthSvUvNthn9mx486vF1LLVbBWm1ShUC1aPpump">Swap</a>
+                </li>
+                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3514">
+                    <a class="elementor-item left" href="https://dexscreener.com/solana/BBdkXrthSvUvNthn9mx486vF1LLVbBWm1ShUC1aPpump">Dexscreener</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div style="background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+        <h3>📱 Инструкция для тестирования:</h3>
+        <ol>
+            <li><strong>На мобильных устройствах:</strong> Кнопка меню (зеленый круг) должна быть видна</li>
+            <li><strong>Клик по кнопке:</strong> Меню должно плавно открываться/закрываться</li>
+            <li><strong>Анимация иконок:</strong> Гамбургер ↔ Крестик</li>
+            <li><strong>Клик по ссылке:</strong> Меню автоматически закрывается</li>
+            <li><strong>Адаптивность:</strong> На экранах >768px кнопка скрывается, меню показывается горизонтально</li>
+        </ol>
+        
+        <p><strong>Откройте DevTools (F12) → Console для отладочных сообщений</strong></p>
+    </div>
+
+    <!-- Подключаем наш JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html> 
