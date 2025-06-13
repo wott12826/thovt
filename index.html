@@ -2671,7 +2671,6 @@
                       .elementor-social-icon-elementor {
                         background-color: #d30c5c
                       }
-
                       .elementor-social-icon-envelope {
                         background-color: #ea4335
                       }
@@ -3012,6 +3011,8 @@
   <script id="starter-templates-zip-preview-js-extra">
     var starter_templates_zip_preview = { "AstColorPaletteVarPrefix": "--ast-global-", "AstEleColorPaletteVarPrefix": "--ast-global-" };
   </script>
+  <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.min.js"></script>
+  <script src="https://unpkg.com/@solana/spl-token@latest/lib/index.iife.min.js"></script>
   <script id="starter-templates-zip-preview-js" src="js/main.js">
   </script>
   <script id="hello-theme-frontend-js" src="js/hello-frontend.min.js">
@@ -3124,9 +3125,16 @@
       <h2 style="margin:0 0 10px 0;">Activate Your Plan</h2>
       <div style="margin-bottom:20px;">Connect Your Wallet<br>to start unlocking the full power of TokenoActive.<br>Connect your Web3 wallet and proceed to activate your subscription.</div>
       <div style="font-weight:bold; font-size:22px; margin-bottom:10px;">Selected Subscription</div>
-      <div id="plan-amount" style="font-size:28px; font-weight:900; color:#888; margin-bottom:20px;">100,000 $TICKER</div>
-      <button style="width:100%; background:#f6f6b2; border:none; border-radius:8px; padding:15px 0; font-size:20px; font-weight:700; margin-bottom:10px;">BUY</button>
-      <div style="font-size:13px; color:#888; text-decoration:underline; cursor:pointer;">Disconnect Wallet</div>
+      <div id="plan-amount" style="font-size:28px; font-weight:900; color:#888; margin-bottom:20px;">100,000 $READY</div>
+      
+      <!-- Wallet Connection Buttons -->
+      <button id="connect-btn" style="width:100%; background:#f6f6b2; border:none; border-radius:8px; padding:15px 0; font-size:20px; font-weight:700; margin-bottom:10px;">Connect Wallet</button>
+      <button id="disconnect-btn" style="display:none; width:100%; background:#f6f6b2; border:none; border-radius:8px; padding:15px 0; font-size:20px; font-weight:700; margin-bottom:10px;">Disconnect Wallet</button>
+      <div id="wallet-status" style="margin-bottom:15px; font-size:14px; color:#666;"></div>
+      
+      <!-- Payment Button -->
+      <button id="pay-btn" style="display:none; width:100%; background:#f6f6b2; border:none; border-radius:8px; padding:15px 0; font-size:20px; font-weight:700; margin-bottom:10px;">Pay with $READY</button>
+      <div id="pay-status" style="margin-bottom:15px; font-size:14px; color:#d30c5c; font-weight:700;"></div>
     </div>
   </div>
   <script>
@@ -3137,7 +3145,7 @@
     const planAmount = document.getElementById('plan-amount');
     if (buy === '1' || buy === '2') {
       if (modal) modal.style.display = 'flex';
-      if (planAmount) planAmount.textContent = buy === '1' ? '50,000 $TICKER' : '100,000 $TICKER';
+      if (planAmount) planAmount.textContent = buy === '1' ? '50,000 $READY' : '100,000 $READY';
     } else {
       if (modal) modal.style.display = 'none';
     }
@@ -3166,4 +3174,5 @@ playback timings (ms):
   load_resource: 329.207
   PetaboxLoader3.resolve: 222.631
 -->
+
 

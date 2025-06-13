@@ -1,0 +1,86 @@
+/* Payment & Wallet Buttons */
+#connect-btn, #disconnect-btn, #pay-btn {
+  background: linear-gradient(135deg, #f6f6b2 0%, #ffe066 100%);
+  color: #222;
+  border: none;
+  border-radius: 12px;
+  padding: 15px 28px;
+  font-size: 18px;
+  font-weight: 700;
+  margin: 8px 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(246, 246, 178, 0.3);
+  width: 100%;
+}
+
+#connect-btn:hover, #disconnect-btn:hover, #pay-btn:hover {
+  background: linear-gradient(135deg, #ffe066 0%, #ffd700 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(246, 246, 178, 0.4);
+}
+
+#connect-btn:active, #disconnect-btn:active, #pay-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 10px rgba(246, 246, 178, 0.3);
+}
+
+#wallet-status {
+  margin: 10px 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: #666;
+  text-align: center;
+  padding: 8px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid #28a745;
+}
+
+#pay-status {
+  margin: 10px 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #d30c5c;
+  text-align: center;
+  padding: 8px;
+  background: #fff5f5;
+  border-radius: 8px;
+  border-left: 4px solid #d30c5c;
+  min-height: 20px;
+}
+
+#pay-status:empty {
+  display: none;
+}
+
+/* Success status */
+#pay-status.success {
+  color: #28a745;
+  background: #f8fff9;
+  border-left-color: #28a745;
+}
+
+/* Loading animation */
+.loading {
+  position: relative;
+}
+
+.loading::after {
+  content: '';
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  border: 2px solid #f3f3f3;
+  border-top: 2px solid #d30c5c;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: translateY(-50%) rotate(0deg); }
+  100% { transform: translateY(-50%) rotate(360deg); }
+} 
