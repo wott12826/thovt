@@ -1552,10 +1552,7 @@
                               
                                 class="choose-button choose-right"
                                 style="color: black; font-weight: bold;"
-                                onclick="
-                                event.preventDefault();
-                                setTimeout(() => { window.top.location = '/buy?plan=1'; }, 1000);
-                              "                              >
+                                href="index.html?buy=1"                         >
                                 Choose
                               </a>
                               </div>
@@ -1992,10 +1989,7 @@
                               
                                 class="choose-button choose-right"
                                 style="color: black; font-weight: bold;"
-                                onclick="
-                                event.preventDefault();
-                                setTimeout(() => { window.top.location = '/buy?plan=2'; }, 1000);
-                              "                              >
+                                href="index.html?buy=2"                             >
                                 Choose
                               </a>
                               </div>
@@ -3122,6 +3116,33 @@
     });
   </script>
 
+  <div id="buy-modal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:#111; z-index:99999; display:flex; align-items:center; justify-content:center;">
+    <div style="background:#fff; border-radius:30px; padding:40px 30px; text-align:center; min-width:320px; max-width:90vw;">
+      <div style="font-size:40px; margin-bottom:10px;">
+        <img src="images/Untitled-2.png" alt="logo" style="width: 60px; height: 60px; object-fit: contain; display: block; margin: 0 auto;">
+      </div>
+      <h2 style="margin:0 0 10px 0;">Activate Your Plan</h2>
+      <div style="margin-bottom:20px;">Connect Your Wallet<br>to start unlocking the full power of TokenoActive.<br>Connect your Web3 wallet and proceed to activate your subscription.</div>
+      <div style="font-weight:bold; font-size:22px; margin-bottom:10px;">Selected Subscription</div>
+      <div id="plan-amount" style="font-size:28px; font-weight:900; color:#888; margin-bottom:20px;">100,000 $TICKER</div>
+      <button style="width:100%; background:#f6f6b2; border:none; border-radius:8px; padding:15px 0; font-size:20px; font-weight:700; margin-bottom:10px;">BUY</button>
+      <div style="font-size:13px; color:#888; text-decoration:underline; cursor:pointer;">Disconnect Wallet</div>
+    </div>
+  </div>
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const params = new URLSearchParams(window.location.search);
+    const buy = params.get('buy');
+    const modal = document.getElementById('buy-modal');
+    const planAmount = document.getElementById('plan-amount');
+    if (buy === '1' || buy === '2') {
+      if (modal) modal.style.display = 'flex';
+      if (planAmount) planAmount.textContent = buy === '1' ? '50,000 $TICKER' : '100,000 $TICKER';
+    } else {
+      if (modal) modal.style.display = 'none';
+    }
+  });
+  </script>
 </body>
 
 </html>
