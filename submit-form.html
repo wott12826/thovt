@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Your Project - TokenoActive</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: #0f0f0f;
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #1a1a1a;
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid #333;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .logo {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 20px;
+            display: block;
+        }
+        
+        h1 {
+            color: #6cd162;
+            font-size: 28px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            color: #888;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        label {
+            display: block;
+            color: #ffffff;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        
+        .required {
+            color: #ff6b6b;
+        }
+        
+        input[type="text"],
+        input[type="url"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 12px 16px;
+            background: #2a2a2a;
+            border: 1px solid #444;
+            border-radius: 8px;
+            color: #ffffff;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+        }
+        
+        input[type="text"]:focus,
+        input[type="url"]:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: #6cd162;
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .file-upload {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+        
+        .file-upload input[type="file"] {
+            position: absolute;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+        
+        .file-upload-label {
+            display: block;
+            padding: 12px 16px;
+            background: #2a2a2a;
+            border: 2px dashed #444;
+            border-radius: 8px;
+            text-align: center;
+            color: #888;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .file-upload:hover .file-upload-label {
+            border-color: #6cd162;
+            color: #6cd162;
+        }
+        
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .category-tag {
+            background: #333;
+            color: #888;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid #444;
+        }
+        
+        .category-tag:hover,
+        .category-tag.active {
+            background: #6cd162;
+            color: #000;
+            border-color: #6cd162;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(180deg, #6cd162 0%, #b0ffa3 100%);
+            border: none;
+            border-radius: 8px;
+            color: #000;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+            margin-top: 20px;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        .submit-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .note {
+            background: #2a2a2a;
+            border-left: 3px solid #6cd162;
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 14px;
+            color: #ccc;
+            margin-bottom: 30px;
+        }
+        
+        .back-link {
+            color: #6cd162;
+            text-decoration: none;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 20px;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">
+            ← Back to main page
+        </a>
+        
+        <div class="header">
+            <img src="images/Untitled-2.png" alt="TokenoActive" class="logo">
+            <h1>Submit Your Project</h1>
+            <p class="subtitle">Tokenize your Web2 business with TokenoActive</p>
+        </div>
+        
+        <div class="note">
+            <strong>info & social</strong><br>
+            Follow these steps:<br>
+            1. This is the only authorized method for submitting your project and making it available on TokenoActive<br>
+            2. Small changes can help, but occasionally businesses succeed little, be fair<br>
+            3. For token updates support join to the TokenoActive group<br>
+            4. For upvoted considerations by December 1, 2024, please join this form.
+        </div>
+        
+        <form id="project-form">
+            <div class="form-group">
+                <label for="project-name">Project Name <span class="required">*</span></label>
+                <input type="text" id="project-name" name="project-name" required placeholder="Enter your project name">
+            </div>
+            
+            <div class="form-group">
+                <label for="description">Description <span class="required">*</span></label>
+                <textarea id="description" name="description" required placeholder="Describe your business and tokenization goals..."></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="logo">Logo</label>
+                <div class="file-upload">
+                    <input type="file" id="logo" name="logo" accept="image/*">
+                    <label for="logo" class="file-upload-label">
+                        📁 Drag and drop file here to upload
+                    </label>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="banner">Banner</label>
+                <div class="file-upload">
+                    <input type="file" id="banner" name="banner" accept="image/*">
+                    <label for="banner" class="file-upload-label">
+                        📁 Drag and drop file here to upload
+                    </label>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="website-url">Website URL</label>
+                <input type="url" id="website-url" name="website-url" placeholder="https://yourwebsite.com">
+            </div>
+            
+            <div class="form-group">
+                <label for="telegram">Telegram</label>
+                <input type="url" id="telegram" name="telegram" placeholder="https://t.me/yourchannel">
+            </div>
+            
+            <div class="form-group">
+                <label for="twitter">Twitter/X</label>
+                <input type="url" id="twitter" name="twitter" placeholder="https://x.com/youraccount">
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" id="email" name="email" placeholder="contact@yourproject.com">
+            </div>
+            
+            <div class="form-group">
+                <label>Categories</label>
+                <div class="categories">
+                    <div class="category-tag" data-category="fintech">FinTech</div>
+                    <div class="category-tag" data-category="ecommerce">E-commerce</div>
+                    <div class="category-tag" data-category="saas">SaaS</div>
+                    <div class="category-tag" data-category="retail">Retail</div>
+                    <div class="category-tag" data-category="manufacturing">Manufacturing</div>
+                    <div class="category-tag" data-category="services">Services</div>
+                    <div class="category-tag" data-category="tech">Technology</div>
+                    <div class="category-tag" data-category="healthcare">Healthcare</div>
+                    <div class="category-tag" data-category="education">Education</div>
+                    <div class="category-tag" data-category="other">Other</div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="token-description">Token Description</label>
+                <textarea id="token-description" name="token-description" placeholder="Describe how your business token will work, revenue sharing model, etc."></textarea>
+            </div>
+            
+            <button type="submit" class="submit-btn">SUBMIT</button>
+        </form>
+    </div>
+    
+    <script>
+        // Category selection
+        document.querySelectorAll('.category-tag').forEach(tag => {
+            tag.addEventListener('click', function() {
+                this.classList.toggle('active');
+            });
+        });
+        
+        // File upload labels
+        document.querySelectorAll('input[type="file"]').forEach(input => {
+            input.addEventListener('change', function() {
+                const label = this.nextElementSibling;
+                if (this.files.length > 0) {
+                    label.textContent = `📁 ${this.files[0].name}`;
+                    label.style.color = '#6cd162';
+                } else {
+                    label.textContent = '📁 Drag and drop file here to upload';
+                    label.style.color = '#888';
+                }
+            });
+        });
+        
+        // Form submission
+        document.getElementById('project-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const selectedCategories = Array.from(document.querySelectorAll('.category-tag.active'))
+                .map(tag => tag.dataset.category);
+            
+            // Add categories to form data
+            formData.append('categories', selectedCategories.join(','));
+            
+            // Show loading state
+            const submitBtn = document.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'SUBMITTING...';
+            submitBtn.disabled = true;
+            
+            // Simulate form submission
+            setTimeout(() => {
+                // Redirect to buy page
+                window.location.href = 'index.html?buy=1';
+            }, 1000);
+        });
+    </script>
+</body>
+</html> 
